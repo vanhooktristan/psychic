@@ -15,16 +15,24 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 
 // Allows the user 9 guesses
 // guesses = guesses || 9
+
 var updateGuessesLeft = function() {
     document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
 };
 
+// Creating function to make the computer pick a random lettter
+
 var updateLetterToGuess = function() {
     this.letterToGuess = this.computerChoices[Math.floor(Math.random() * this.computerChoices.length)];
 };
+
+// Creating function to display letters guessed to the screen
+
 var updateGuessesSoFar = function () {
     document.querySelector("#letterGuesses").innerHTML = "Your Guesses so far: " + guessedLetters.join(", ");
 };
+
+// Creating function to reset game once player has lost or won
 
 var reset = function() {
     totalGuesses = 9;
@@ -52,7 +60,7 @@ updateGuessesSoFar();
         if (userGuess == letterToGuess) {
             wins++;
             document.querySelector("#winTotal").innerHTML = "Wins: " + wins;
-            alert("Yes, you are psychic!");
+            alert("Yes it is " + letterToGuess + ", you are psychic!");
             reset();
         }
     }else if(guessesLeft == 0) {
